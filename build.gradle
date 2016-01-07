@@ -48,6 +48,10 @@ task buildDocker(type: Docker, dependsOn: build) {
             from jar
             into stageDir
         }
+        copy {
+            from project.file("README.md")
+            into stageDir
+        }
     }
     volume("/tmp")
     addFile jar.archiveName, "app.jar"
